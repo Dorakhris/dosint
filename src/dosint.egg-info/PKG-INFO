@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: dosint
+Version: 3.0.0
+Summary: An intelligent OSINT, CTF, & Forensics Assistant.
+Author: Your Name
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: python-whois
+Requires-Dist: termcolor
+Requires-Dist: phonenumbers
+Requires-Dist: setuptools
+Requires-Dist: pyyaml
+Requires-Dist: tinydb
+Requires-Dist: googlesearch-python
+Requires-Dist: Pillow
+Requires-Dist: exifread
+Requires-Dist: python-docx
+Requires-Dist: pygments
+Requires-Dist: python-magic
+Requires-Dist: beautifulsoup4
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: summary
+
+# DOSINT - An Intelligent OSINT, CTF, & Forensics Assistant
+
+DOSINT is a command-line tool designed to be a "force multiplier" for investigators. It combines external data gathering (OSINT) with local file and log analysis, focusing on providing clear, actionable intelligence and uncovering hidden connections between data points via its interactive Pivot Engine.

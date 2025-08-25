@@ -1,0 +1,10 @@
+log_type_name: "SSH (Debian/Ubuntu)"
+patterns:
+  - name: "Failed Login"
+    regex: 'sshd\[\d+\]: Failed password for (?P<user_status>invalid user |)(?P<username>\S+) from (?P<source_ip>\S+) port (?P<source_port>\d+)'
+  - name: "Accepted Login"
+    regex: 'sshd\[\d+\]: Accepted password for (?P<username>\S+) from (?P<source_ip>\S+) port (?P<source_port>\d+)'
+  - name: "Connection Closed"
+    regex: 'sshd\[\d+\]: Received disconnect from (?P<source_ip>\S+) port (?P<source_port>\d+):.*'
+  - name: "Invalid User"
+    regex: 'sshd\[\d+\]: Invalid user (?P<username>\S+) from (?P<source_ip>\S+)'
