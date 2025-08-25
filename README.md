@@ -1,3 +1,4 @@
+
 ```markdown
 <div align="left">
 
@@ -14,7 +15,7 @@
 
 </div>
 
-<div align="center">
+<div align="left">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -22,7 +23,8 @@
 
 </div>
 
----
+
+
 
 DOSINT is a command-line framework built to be a force multiplier for investigators. Most OSINT tools are like encyclopedias; they dump a huge amount of raw data on you and expect you to do the hard work of connecting the dots.
 
@@ -31,11 +33,11 @@ DOSINT is a command-line framework built to be a force multiplier for investigat
 ##  Key Features
 
 *   **Intelligent Pivot Engine:** Automatically discovers new indicators (emails, domains, usernames) during an investigation and lets you instantly launch a new scan on them with a single keypress.
-*   **🛠️ Unified Investigation Cockpit:** Seamlessly bridges the gap between different security disciplines. Use one tool for:
-    *   **Open-Source Intelligence (OSINT):** Investigate businesses and people.
-    *   **Capture The Flag (CTF):** Hunt for flags and metadata in local files.
-    *   **Digital Forensics:** Perform EXIF analysis on images and documents.
-    *   **Log Analysis:** Triage log files for Indicators of Compromise (IOCs).
+*   **Unified Investigation Cockpit:** Seamlessly bridges the gap between different security disciplines. Use one tool for:
+*   **Open-Source Intelligence (OSINT):** Investigate businesses and people.
+*   **Capture The Flag (CTF):** Hunt for flags and metadata in local files.
+*   **Digital Forensics:** Perform EXIF analysis on images and documents.
+*   **Log Analysis:** Triage log files for Indicators of Compromise (IOCs).
 *   **Automated Google Dorking:** Unleash the power of advanced Google searching to find exposed files, hidden login pages, and sensitive information.
 *   **Real-Time Feedback:** Get immediate results for long-running tasks like username searches, making the tool feel responsive and alive.
 *   **Local Intelligence Database:** Use the `report` command to build your own private database of bad actors. DOSINT automatically checks this database during every investigation.
@@ -50,31 +52,37 @@ DOSINT is a command-line framework built to be a force multiplier for investigat
 
 DOSINT is designed for easy installation on any system with Python 3.9+ and pip.
 
-1.  ** Clone or Download:** For development, it's best to clone the repository.
+1.  **Clone or Download:** For development, it's best to clone the repository.
+
     ```bash
     git clone https://github.com/dorakhris/dosint.git
     cd dosint
     ```
 
-2.  ** Set up Virtual Environment:**
+2.  **Set up Virtual Environment:**
+
     ```bash
     python3 -m venv venv
     source venv/bin/activate
     ```
     
-3.  ** Install Dependencies & Tool:**
+3. **Install Dependencies & Tool:**
+
     ```bash
     pip install -e .
     ```
+
 
 ##  First-Time Setup
 
 Before you can use modules that rely on external services, you need to configure your API keys. DOSINT includes an interactive setup wizard to make this easy.
 
 Run the following command and follow the prompts:
+
 ```bash
 dosint setup
 ```
+
 This will create a `config.ini` file where your keys are securely stored, separate from the source code.
 
 ##  Usage & Command Reference
