@@ -1,5 +1,5 @@
 ```markdown
-<div align="center">
+<div align="left">
 
 ```
    ██████╗  ██████╗ ███████╗██╗███╗   ██╗████████╗
@@ -50,19 +50,19 @@ DOSINT is a command-line framework built to be a force multiplier for investigat
 
 DOSINT is designed for easy installation on any system with Python 3.9+ and pip.
 
-1.  **Clone or Download:** For development, it's best to clone the repository.
+1.  ** Clone or Download:** For development, it's best to clone the repository.
     ```bash
     git clone https://github.com/dorakhris/dosint.git
     cd dosint
     ```
 
-2.  **Set up Virtual Environment:**
+2.  ** Set up Virtual Environment:**
     ```bash
     python3 -m venv venv
     source venv/bin/activate
     ```
     
-3.  **Install Dependencies & Tool:**
+3.  ** Install Dependencies & Tool:**
     ```bash
     pip install -e .
     ```
