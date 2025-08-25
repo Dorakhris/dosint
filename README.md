@@ -2,9 +2,6 @@
 
 # DOSINT - An Intelligent OSINT, CTF, & Forensics Assistant
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/assets/dosint-logo-placeholder.png" alt="DOSINT Logo" width="200"/>
-</p>
 
 DOSINT is a command-line tool designed to be a "force multiplier" for investigators. It automates tedious reconnaissance and actively helps you decide what to do next with its interactive **Pivot Engine**. It combines OSINT, local file forensics, and CTF utilities into a single, cohesive toolkit.
 
@@ -96,5 +93,5 @@ Distributed under the MIT License.
 
 DOSINT should only be used for ethical and legal purposes. The user is responsible for their own actions.
 
-```
+
 
