@@ -70,7 +70,7 @@ def robust_ddg_search(query, num_results=5):
 
 def get_virustotal_report(domain):
     """Gets domain reputation from VirusTotal."""
-    api_key = _get_api-key("VIRUSTOTAL_API_KEY")
+    api_key = _get_api_key("VIRUSTOTAL_API_KEY")
     if not api_key: return {"error": "VIRUSTOTAL_API_KEY not set in config.ini"}
     url = f'https://www.virustotal.com/api/v3/domains/{domain}'
     try:
