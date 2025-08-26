@@ -1,0 +1,38 @@
+# A collection of Google Dorks for OSINT.
+# The {target} placeholder will be replaced by the user's input.
+
+categories:
+  - name: files
+    description: "Find potentially exposed files and documents."
+    dorks:
+      - "site:{target} filetype:pdf"
+      - "site:{target} filetype:docx"
+      - "site:{target} filetype:xlsx"
+      - "site:{target} filetype:pptx"
+      - "site:{target} filetype:log"
+      - "site:{target} filetype:txt"
+
+  - name: login
+    description: "Find login pages."
+    dorks:
+      - "site:{target} inurl:login"
+      - "site:{target} inurl:admin"
+      - "site:{target} inurl:signin"
+      - "site:{target} intitle:\"login\""
+
+  - name: subdomains
+    description: "Discover subdomains."
+    dorks:
+      - "site:*.{target} -site:www.{target}"
+  
+  - name: directory_listing
+    description: "Find exposed directory listings."
+    dorks:
+      - "site:{target} intitle:\"index of /\""
+
+  - name: public_exposure
+    description: "Find publicly exposed documents and services."
+    dorks:
+      - "site:{target} intext:\"password\" filetype:log"
+      - "site:trello.com | site:docs.google.com {target}"
+

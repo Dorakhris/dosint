@@ -6,7 +6,7 @@ from termcolor import colored
 
 # Import all necessary components
 from .core.reporter import print_banner
-from .modules import business, person, localfile, filehash, loganalyzer, setup_wizard
+from .modules import business, person, localfile, filehash, loganalyzer, setup_wizard, dorking
 from .core import database
 
 def handle_pivots(indicators):
@@ -19,7 +19,6 @@ def handle_pivots(indicators):
 
     print(colored("\n[?] PIVOT OPTIONS:", 'cyan', attrs=['bold']))
     
-    # Use a set of tuples to find unique indicators, then convert back to a list of dicts
     unique_indicators = [dict(t) for t in {tuple(d.items()) for d in indicators}]
     
     for i, indicator in enumerate(unique_indicators):
@@ -38,7 +37,6 @@ def handle_pivots(indicators):
                 
                 print(colored(f"\nPivoting to {chosen_indicator['type']}: {chosen_indicator['value']}...", 'yellow'))
                 
-                # Relaunch the correct investigation based on the chosen indicator type
                 pivots = []
                 if chosen_indicator['type'] == 'email':
                     pivots = person.investigate(email=chosen_indicator['value'])
@@ -47,9 +45,8 @@ def handle_pivots(indicators):
                 elif chosen_indicator['type'] == 'username':
                     pivots = person.investigate(username=chosen_indicator['value'])
                 
-                # Recursively call the handler with any new pivots from the new investigation
                 handle_pivots(pivots)
-                break # Exit the loop after a successful pivot
+                break 
             else:
                 print(colored("Invalid choice. Please try again.", 'red'))
         except (ValueError, IndexError):
@@ -58,16 +55,14 @@ def handle_pivots(indicators):
 def main():
     """The main entry point for the DOSINT command-line interface."""
 
-    # If the user just types 'dosint', show the banner and exit.
     if len(sys.argv) == 1:
         print_banner()
         sys.exit(0)
 
-    # If arguments were provided, proceed with parsing them.
     parser = argparse.ArgumentParser(
         prog="dosint",
         description="DOSINT - An intelligent OSINT, CTF, & Forensics Assistant.",
-        epilog="Example: dosint investigate person --username exampleuser"
+        epilog="Example: dosint dork --target example.com --engine duckduckgo"
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -94,6 +89,12 @@ def main():
     # --- Hash Command ---
     hash_parser = subparsers.add_parser("hash", help="Check the reputation of a file hash against VirusTotal.")
     hash_parser.add_argument("filehash", help="The MD5, SHA1, or SHA256 hash to check.")
+
+    # --- Dork Command ---
+    dork_parser = subparsers.add_parser("dork", help="Automate Google Dorking to find exposed information.")
+    dork_parser.add_argument("--target", required=True, help="The target domain or keyword (e.g., 'example.com').")
+    dork_parser.add_argument("--dorks", help="A comma-separated list of dork categories to run (e.g., 'files,login').")
+    dork_parser.add_argument("--engine", choices=['google', 'duckduckgo'], default='google', help="The search engine to use (default: google).")
 
     # --- Log Analyzer Command ---
     log_parser = subparsers.add_parser("analyze-log", help="Parse a log file for IOCs.")
@@ -122,6 +123,9 @@ def main():
         localfile.investigate(args.filepath)
     elif args.command == "hash":
         filehash.investigate(args.filehash)
+    elif args.command == "dork":
+        categories = args.dorks.split(',') if args.dorks else None
+        dorking.run(target=args.target, dork_categories=categories, engine=args.engine)
     elif args.command == "analyze-log":
         loganalyzer.analyze(args.filepath, args.type)
     elif args.command == "report":
