@@ -1,0 +1,15 @@
+requests
+python-whois
+termcolor
+phonenumbers
+setuptools
+pyyaml
+tinydb
+googlesearch-python
+Pillow
+exifread
+python-docx
+pygments
+python-magic
+beautifulsoup4
+ddgs

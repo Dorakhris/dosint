@@ -1,0 +1,12 @@
+# Ignore the virtual environment
+venv/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore the local config file with secrets
+config.ini
+
+# Ignore the data directory
+data/
